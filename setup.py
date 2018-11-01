@@ -47,6 +47,7 @@ if dev_mode:
     ext_modules = [
         Extension('.'.join(loc), [os.path.join(*loc)+'.pyx'],
                   extra_compile_args=['-O3'],
+                  extra_link_args=['-L/usr/lib/x86_64-linux-gnu/'],
                   include_dirs=[np.get_include()])
         for loc in cython_locs
     ]
@@ -55,6 +56,7 @@ else:
     ext_modules = [
         Extension('.'.join(loc), [os.path.join(*loc)+'.c'],
                   extra_compile_args=['-O3'],
+                  extra_link_args=['-L/usr/lib/x86_64-linux-gnu/'],
                   include_dirs=[np.get_include()])
         for loc in cython_locs
     ]
